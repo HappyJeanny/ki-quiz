@@ -1,0 +1,14 @@
+{
+  "name": "KI-Beauftragter Quiz",
+  "short_name": "KI-Quiz",
+  "description": "Quiz für den KI-Beauftragter Kurs – Modul 1–7",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f7f6",
+  "theme_color": "#005f73",
+  "lang": "de",
+  "icons": [
+    { "src": "assets/favicons/web-app-manifest-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/favicons/web-app-manifest-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

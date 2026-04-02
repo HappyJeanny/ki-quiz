@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><svg width="200" height="200" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg" aria-label="Logo für ki-strategie.co">
+    <!-- 
+        Konzept: Die Neuronale Verbindung. Der Schlüssel als Netzwerk/Prozess.
+        Version 1: Vollständiges Logo mit Wortmarke.
+        Symbolisiert Dynamik, intelligente Verbindungen und den Markennamen.
+        Farben: #005f73 (dunkelblau), #2a9d8f (türkis/grün)
+    -->
+
+    <!-- BILDMARKE (SYMBOL) -->
+    <g transform="translate(0, -5)">
+        <!-- Hauptpfad und Knotenpunkte -->
+        <g fill="none" stroke="#005f73" stroke-width="3" stroke-linecap="round">
+            <path d="M 25 45 C 35 20, 65 20, 75 45 C 85 70, 60 90, 50 70 C 40 50, 20 60, 35 75"></path>
+            <path d="M 50 70 L 50 90 L 70 90"></path>
+        </g>
+        <!-- Akzent-Knotenpunkte -->
+        <circle cx="25" cy="45" r="4" fill="#2a9d8f"></circle>
+        <circle cx="75" cy="45" r="4" fill="#2a9d8f"></circle>
+        <circle cx="50" cy="70" r="5" fill="#2a9d8f"></circle>
+        <circle cx="35" cy="75" r="3" fill="#2a9d8f"></circle>
+        <circle cx="70" cy="90" r="4" fill="#005f73"></circle>
+    </g>
+
+    <!-- WORTMARKE (TEXT) -->
+    <text x="50" y="118" font-family="Montserrat, Arial, sans-serif" font-size="10" font-weight="600" fill="#005f73" text-anchor="middle" letter-spacing="0.05em">
+          ki-strategie.co
+    </text>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>

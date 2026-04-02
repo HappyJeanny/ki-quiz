@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz – KI-Beauftragter Kurs | Modul 1–7">
+  <title>Quiz – KI-Beauftragter</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="assets/favicons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png">
+  <meta name="theme-color" content="#005f73">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+<header class="app-header">
+  <img src="assets/logo-ki-strategie-co.svg" alt="KI Strategie & Co.">
+  <h1>KI-Beauftragter – Quiz</h1>
+  <span class="header-copyright">© 2026 Mader Consulting</span>
+</header>
+
+<!-- ══ START SCREEN ══════════════════════════════════════════════════════════ -->
+<div id="start-screen" class="screen active">
+  <div class="container">
+
+    <div class="card">
+      <p class="start-intro">
+        Teste dein Wissen aus den Modulen 1–7 des KI-Beauftragter-Kurses.
+        Wähle die Module und den Modus aus.
+      </p>
+
+      <p class="section-title">Module auswählen</p>
+      <div class="module-grid">
+        <button type="button" class="module-toggle" data-module="1">
+          <span class="mod-num">Modul 1</span>Kommunikation & Prompting
+        </button>
+        <button type="button" class="module-toggle" data-module="2">
+          <span class="mod-num">Modul 2</span>Rechtliche Grundlagen
+        </button>
+        <button type="button" class="module-toggle" data-module="3">
+          <span class="mod-num">Modul 3</span>Risikomanagement
+        </button>
+        <button type="button" class="module-toggle" data-module="4">
+          <span class="mod-num">Modul 4</span>Projektmanagement & QS
+        </button>
+        <button type="button" class="module-toggle" data-module="5">
+          <span class="mod-num">Modul 5</span>Daten- & Change-Management
+        </button>
+        <button type="button" class="module-toggle" data-module="6">
+          <span class="mod-num">Modul 6</span>ISO/IEC 42001
+        </button>
+        <button type="button" class="module-toggle" data-module="7">
+          <span class="mod-num">Modul 7</span>EU AI Act
+        </button>
+      </div>
+
+      <div class="select-controls">
+        <button type="button" id="select-all" class="btn-text">Alle auswählen</button>
+        <button type="button" id="select-none" class="btn-text">Alle abwählen</button>
+      </div>
+
+      <p class="section-title">Modus wählen</p>
+      <div class="mode-cards">
+        <button type="button" id="btn-learn" class="mode-card mode-card-learn">
+          <span class="mode-icon">📖</span>
+          <span class="mode-title">Lernmodus</span>
+          <span class="mode-desc">Sofortiges Feedback nach jeder Frage mit Erklärung</span>
+        </button>
+        <button type="button" id="btn-exam" class="mode-card mode-card-exam">
+          <span class="mode-icon">📝</span>
+          <span class="mode-title">Prüfungsmodus</span>
+          <span class="mode-desc">Alle Fragen am Stück – Auswertung am Ende</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ QUIZ SCREEN ═══════════════════════════════════════════════════════════ -->
+<div id="quiz-screen" class="screen">
+  <div class="container">
+
+    <div id="exam-nav" style="display:none"></div>
+
+    <div class="card">
+      <div class="quiz-topbar">
+        <div class="progress-wrap">
+          <div class="progress-label">
+            <span>Frage</span><span id="progress-text"></span>
+          </div>
+          <div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div>
+        </div>
+        <span id="mode-badge" class="mode-badge"></span>
+      </div>
+
+      <div class="question-meta">
+        <span id="module-badge" class="module-badge"></span>
+        <span id="multi-hint" class="multi-hint hint-single">Nur eine Antwort richtig</span>
+      </div>
+
+      <p id="question-text"></p>
+
+      <div id="answers-container"></div>
+
+      <div id="explanation-box" class="explanation-box" style="display:none">
+        <div class="exp-header"><span id="exp-icon"></span><span id="exp-label">Erklärung</span></div>
+        <p id="explanation-text"></p>
+        <p id="explanation-ref"></p>
+      </div>
+
+      <div class="quiz-actions">
+        <div class="nav-pair">
+          <button type="button" id="btn-prev" class="btn-secondary">← Zurück</button>
+          <button type="button" id="btn-next" class="btn-secondary">Weiter →</button>
+        </div>
+        <button type="button" id="btn-submit-learn" class="btn-primary" style="display:none">Antwort prüfen ✓</button>
+        <button type="button" id="btn-submit-exam" class="btn-submit-exam" style="display:none">Quiz abgeben</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ RESULT SCREEN ═════════════════════════════════════════════════════════ -->
+<div id="result-screen" class="screen">
+  <div class="container">
+
+    <div class="card result-hero">
+      <svg class="score-ring" width="130" height="130" viewBox="0 0 120 120">
+        <circle class="score-ring-bg" cx="60" cy="60" r="54"/>
+        <circle id="score-ring-fill" class="score-ring-fill" cx="60" cy="60" r="54"
+          stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+        <text id="result-score" class="score-center" x="60" y="64" text-anchor="middle"></text>
+      </svg>
+      <span id="result-percent" class="result-pct-text"></span>
+      <p id="result-message" class="result-message"></p>
+    </div>
+
+    <div class="card">
+      <p class="breakdown-title">Ergebnis nach Modul</p>
+      <div id="module-breakdown"></div>
+    </div>
+
+    <div class="result-actions">
+      <button type="button" id="btn-details-wrong" class="btn-primary">Falsche Antworten ansehen</button>
+      <button type="button" id="btn-details-all" class="btn-secondary">Alle Fragen mit Erklärung</button>
+      <button type="button" id="btn-restart" class="btn-secondary">Neues Quiz starten</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ DETAILS SCREEN ════════════════════════════════════════════════════════ -->
+<div id="details-screen" class="screen">
+  <div class="container">
+
+    <div class="details-topbar">
+      <h2>Antworten im Detail</h2>
+      <button class="btn-secondary" onclick="backToResults()">← Zurück zur Auswertung</button>
+    </div>
+
+    <div id="details-container"></div>
+
+  </div>
+</div>
+
+<footer class="app-footer">
+  Copyright © 2026 Mader Consulting | Inh. Isabell Mader
+</footer>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+</body>
+</html>
