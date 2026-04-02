@@ -102,9 +102,7 @@ function renderQuestion() {
 
   // Selection type hint – always visible
   const multiHint = $('multi-hint');
-  multiHint.style.display = 'block';
-  multiHint.textContent = isMulti ? 'Mehrere Antworten möglich' : 'Nur eine Antwort richtig';
-  multiHint.className = 'multi-hint ' + (isMulti ? 'hint-multi' : 'hint-single');
+  multiHint.style.display = 'none';
 
   // Question text – highlight negative words
   let qText = escapeHtml(q.question);
