@@ -648,7 +648,7 @@ reference:"Modul 7 – EU AI Act"},
 {id:72,module:7,type:2,question:"Welche Aussage zu den Bußgeldern des EU AI Acts (Art. 99) ist vollständig korrekt?",
 answers:[
 {id:"A",text:"Verstöße gegen Betreiberpflichten (Art. 26) werden mit bis zu 6 % des globalen Jahresumsatzes geahndet – dem höchsten Bußgeldrahmen.",correct:false},
-{id:"B",text:"Für Verstöße gegen verbotene KI-Praktiken (Art. 5) drohen Bußgelder bis zu 4 % des globalen Jahresumsatzes.",correct:false},
+{id:"B",text:"Für Verstöße gegen verbotene KI-Praktiken (Art. 5) drohen Bußgelder bis zu 7 % des globalen Jahresumsatzes.",correct:false},
 {id:"C",text:"Für verbotene KI-Praktiken (Art. 5): bis zu 6 % Jahresumsatz oder 30 Mio. EUR (je höher); für QMS/Dokumentationsmängel: bis zu 4 %; für Betreiberpflichtverstöße (Art. 26): bis zu 2 %.",correct:true},
 {id:"D",text:"Der EU AI Act sieht ausschließlich Bußgelder vor; strafrechtliche Konsequenzen sind nicht möglich.",correct:false}],
 explanation:"Die drei Bußgeldebenen: 6 %/30 Mio. für verbotene Praktiken (Art. 5), 4 % für QMS/Dokumentation (Art. 17/11), 2 % für Betreiberpflichtverstöße (Art. 26). Jeweils der höhere Betrag gilt. Strafrechtliche Konsequenzen können zusätzlich durch nationales Recht entstehen.",
