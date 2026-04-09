@@ -32,6 +32,10 @@ function shuffle(arr) {
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 function init() {
+  if (typeof QUIZ_ENABLED !== 'undefined' && !QUIZ_ENABLED) {
+    showScreen('disabled-screen');
+    return;
+  }
   document.querySelectorAll('.module-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
       btn.classList.toggle('selected');
@@ -51,6 +55,8 @@ function init() {
   $('btn-prev').addEventListener('click', prevQuestion);
   $('btn-next').addEventListener('click', nextQuestion);
   $('btn-submit-exam').addEventListener('click', submitExam);
+  const finishLearnBtn = $('btn-finish-learn');
+  if (finishLearnBtn) finishLearnBtn.addEventListener('click', showResults);
   $('btn-restart').addEventListener('click', showStart);
   $('btn-details-wrong').addEventListener('click', () => showDetails('wrong'));
   $('btn-details-all').addEventListener('click', () => showDetails('all'));
@@ -166,6 +172,15 @@ function renderQuestion() {
   // Navigation
   $('btn-prev').disabled = state.current === 0;
   $('btn-next').disabled = state.current === total - 1;
+
+  // Learn mode: show finish button when all questions submitted
+  const finishBtn = $('btn-finish-learn');
+  if (finishBtn) {
+    const allSubmitted = state.mode === 'learn' &&
+      state.questions.length > 0 &&
+      state.questions.every(q => state.submitted[q.id]);
+    finishBtn.style.display = allSubmitted ? 'inline-flex' : 'none';
+  }
 
   // Exam: mark visited
   if (state.mode === 'exam') {
