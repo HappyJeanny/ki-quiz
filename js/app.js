@@ -173,13 +173,13 @@ function renderQuestion() {
   $('btn-prev').disabled = state.current === 0;
   $('btn-next').disabled = state.current === total - 1;
 
-  // Learn mode: show finish button when all questions submitted
+  // Learn mode: show finish button on last question once it's submitted
   const finishBtn = $('btn-finish-learn');
   if (finishBtn) {
-    const allSubmitted = state.mode === 'learn' &&
-      state.questions.length > 0 &&
-      state.questions.every(q => state.submitted[q.id]);
-    finishBtn.style.display = allSubmitted ? 'inline-flex' : 'none';
+    const showFinish = state.mode === 'learn' &&
+      state.current === total - 1 &&
+      !!state.submitted[q.id];
+    finishBtn.style.display = showFinish ? 'inline-flex' : 'none';
   }
 
   // Exam: mark visited
