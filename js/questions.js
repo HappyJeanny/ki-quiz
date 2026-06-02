@@ -651,7 +651,7 @@ answers:[
 {id:"B",text:"Für Verstöße gegen verbotene KI-Praktiken (Art. 5) drohen Bußgelder bis zu 5 % des globalen Jahresumsatzes.",correct:false},
 {id:"C",text:"Für verbotene KI-Praktiken (Art. 5): bis zu 7 % Jahresumsatz oder 35 Mio. EUR (je höher)",correct:true},
 {id:"D",text:"Der EU AI Act sieht ausschließlich Bußgelder vor; strafrechtliche Konsequenzen sind nicht möglich.",correct:false}],
-explanation:"Die drei Bußgeldebenen: 6 %/30 Mio. für verbotene Praktiken (Art. 5), 4 % für QMS/Dokumentation (Art. 17/11), 2 % für Betreiberpflichtverstöße (Art. 26). Jeweils der höhere Betrag gilt. Strafrechtliche Konsequenzen können zusätzlich durch nationales Recht entstehen.",
+explanation:"Die drei Bußgeldebenen (Art. 99): 7 %/35 Mio. EUR für verbotene Praktiken (Art. 5 · Abs. 3), 3 %/15 Mio. EUR für die meisten anderen Pflichten inkl. Hochrisiko-KI (Art. 8–15), Anbieter- (Art. 16) und Betreiberpflichten (Art. 26) sowie Transparenzpflichten (Art. 50 · Abs. 4), 1 %/7,5 Mio. EUR für unrichtige Angaben gegenüber Behörden (Abs. 5). Für KMU/Start-ups gilt jeweils der niedrigere Betrag (Abs. 6). Strafrechtliche Konsequenzen können zusätzlich durch nationales Recht entstehen.",
 reference:"Modul 7 – EU AI Act"},
 
 {id:73,module:7,type:1,question:"Was bedeutet 'GPAI' im EU AI Act und welches System in SmartHire fällt darunter?",
